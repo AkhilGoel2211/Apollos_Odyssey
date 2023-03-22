@@ -109,6 +109,7 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
+        private bool _rotate_on_move = true;
 
         private bool IsCurrentDeviceMouse
         {
@@ -261,7 +262,11 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                if (_rotate_on_move)
+                {
+                    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                }
+                
             }
 
 
@@ -392,6 +397,11 @@ namespace StarterAssets
         public void updateSensitivity(float updatedValue)
         {
             mouseSensitivity = updatedValue;
+        }
+
+        public void setRotateOnMove(bool newRotateOnMove)
+        {
+            _rotate_on_move = newRotateOnMove;
         }
     }
 }
