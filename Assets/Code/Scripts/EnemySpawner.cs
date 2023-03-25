@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnEnemy(spawnInterval, enemy));
+        //StartCoroutine(spawnEnemy(spawnInterval, enemy));
     }
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
