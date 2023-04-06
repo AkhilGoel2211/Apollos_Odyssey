@@ -7,6 +7,7 @@ public class bulletControl : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody bulletBody;
     [SerializeField] float bulletSpeed;
+    [SerializeField] private Transform vfxcollision;
 
     private void Awake()
     {
@@ -20,5 +21,6 @@ public class bulletControl : MonoBehaviour
     private void OnTriggerEnter(Collider otherBody)
     {
         Destroy(gameObject);
+        Instantiate(vfxcollision, transform.position, Quaternion.identity);
     }
 }
